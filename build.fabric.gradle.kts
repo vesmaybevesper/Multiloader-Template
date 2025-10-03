@@ -1,11 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    kotlin("jvm")
     id("fabric-loom")
     id("dev.kikugie.postprocess.jsonlang")
     id("me.modmuss50.mod-publish-plugin")
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
 tasks.named<ProcessResources>("processResources") {
@@ -46,7 +44,6 @@ dependencies {
     })
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
-    modImplementation("net.fabricmc:fabric-language-kotlin:${property("deps.fabric-kotlin")}")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))
@@ -105,7 +102,7 @@ publishMods {
         accessToken = env.MODRINTH_API_KEY.orNull()
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
-        requires("fabric-api", "fabric-language-kotlin")
+        requires("fabric-api")
     }
 
     curseforge {
@@ -113,6 +110,6 @@ publishMods {
         accessToken = env.CURSEFORGE_API_KEY.orNull()
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
-        requires("fabric-api", "fabric-language-kotlin")
+        requires("fabric-api")
     }
 }

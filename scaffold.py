@@ -145,14 +145,14 @@ def rename_modtemplate_dirs(root: str, new_mod_id: str):
 
 print("Spagurder's Mod Template Scaffolder")
 print("Note: This script assumes certain files have not been modified. "
-      "Running this ona fresh, unmodified template is recommended.")
+      "Running this on a fresh, unmodified template is recommended.")
 
 mod_name = require_input("Mod Name: ")
 
 mod_id = ''.join(mod_name.lower().split())
 mod_id = require_input(f"Mod ID [{mod_id}]: ", mod_id, mod_id_validator)
 
-print("This should be a valid Kotlin class/object name. I do not validate this.")
+print("This should be a valid Java class name. I do not validate this.")
 mod_class = input("Mod Class [ModTemplate]: ").strip() or 'ModTemplate'
 
 print("The mod group may also be updated. If you are not spagurder, please change this.")
@@ -167,7 +167,6 @@ mod_description = input("Mod Description []: ").strip()
 
 print("This template includes some sample content for testing/example purposes, including:")
 print("    - Random AW/AT")
-print("    - Some log entries")
 print("    - A test mixin")
 print("    - Datagen Lava Chicken Recipe")
 remove_samples = require_input("Remove this sample content? (Y/n) [Y]: ", 'Y', confirm_validator).lower() == 'y'
@@ -193,25 +192,22 @@ if remove_samples:
     print("Removing samples...")
     # Mixins
     os.remove('src/main/java/dev/spagurder/modtemplate/mixin/ExampleMixin.java')
-    os.remove('src/main/kotlin/dev/spagurder/modtemplate/ExampleMixinHandler.kt')
     yeet_line('src/main/resources/modtemplate.mixins.json', 'ExampleMixin')
     # Datagen
     shutil.rmtree('src/main/generated', ignore_errors=True)
-    os.remove('src/main/kotlin/dev/spagurder/modtemplate/fabric/datagen/ModRecipeProvider.kt')
-    yeet_line('src/main/kotlin/dev/spagurder/modtemplate/fabric/datagen/FabricDataGeneratorEntrypoint.kt', 'sample_content')
+    os.remove('src/main/java/dev/spagurder/modtemplate/fabric/datagen/ModRecipeProvider.java')
+    yeet_line('src/main/java/dev/spagurder/modtemplate/fabric/datagen/FabricDataGeneratorEntrypoint.java', 'sample_content')
     # Event/AWs/ATs
-    os.remove('src/main/kotlin/dev/spagurder/modtemplate/ExampleEventHandler.kt')
-    yeet_line('src/main/kotlin/dev/spagurder/modtemplate/fabric/FabricEntrypoint.kt', 'sample_content')
-    yeet_line('src/main/kotlin/dev/spagurder/modtemplate/neoforge/NeoforgeEntrypoint.kt', 'sample_content')
+    os.remove('src/main/java/dev/spagurder/modtemplate/ExampleEventHandler.java')
+    yeet_line('src/main/java/dev/spagurder/modtemplate/fabric/FabricEntrypoint.java', 'sample_content')
+    yeet_line('src/main/java/dev/spagurder/modtemplate/neoforge/NeoforgeEntrypoint.java', 'sample_content')
     yeet_line('src/main/resources/modtemplate.accesswidener', 'sample_content')
     yeet_line('src/main/resources/META-INF/accesstransformer.cfg', 'sample_content')
-    # Platform "bridge" test
-    yeet_line('src/main/kotlin/dev/spagurder/modtemplate/ModTemplate.kt', 'sample_content')
 
 if mod_class != 'ModTemplate':
     print('Renaming Mod Class File...')
-    os.rename('src/main/kotlin/dev/spagurder/modtemplate/ModTemplate.kt',
-              f'src/main/kotlin/dev/spagurder/modtemplate/{mod_class}.kt')
+    os.rename('src/main/java/dev/spagurder/modtemplate/ModTemplate.java',
+              f'src/main/java/dev/spagurder/modtemplate/{mod_class}.java')
 
 print('Renaming Resource Files...')
 os.rename('src/main/resources/modtemplate.accesswidener',
@@ -229,9 +225,7 @@ MassReplace.replace('.', 'A Mod Description', mod_description)
 
 print('Renaming directories/packages')
 move_package_group('src/main/java/', 'dev.spagurder', mod_group)
-move_package_group('src/main/kotlin/', 'dev.spagurder', mod_group)
 rename_modtemplate_dirs('src/main/java/', mod_id)
-rename_modtemplate_dirs('src/main/kotlin/', mod_id)
 
 print("All done!")
 

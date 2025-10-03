@@ -1,5 +1,4 @@
 plugins {
-    kotlin("jvm") version "2.2.0" apply false
     id("dev.kikugie.stonecutter")
     id("co.uzzu.dotenv.gradle") version "4.0.0"
     id("fabric-loom") version "1.10-SNAPSHOT" apply false

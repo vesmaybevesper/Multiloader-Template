@@ -15,29 +15,19 @@
   "accessWidener": "modtemplate.accesswidener",
   "entrypoints": {
     "main": [
-      {
-        "adapter": "kotlin",
-        "value": "dev.spagurder.modtemplate.fabric.FabricEntrypoint"
-      }
+      "dev.spagurder.modtemplate.fabric.FabricEntrypoint"
     ],
     "client": [
-      {
-        "adapter": "kotlin",
-        "value": "dev.spagurder.modtemplate.fabric.FabricClientEntrypoint"
-      }
+      "dev.spagurder.modtemplate.fabric.FabricClientEntrypoint"
     ],
     "fabric-datagen": [
-      {
-        "adapter": "kotlin",
-        "value": "dev.spagurder.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
-      }
+      "dev.spagurder.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
     ]
   },
   "mixins": [
     "modtemplate.mixins.json"
   ],
   "depends": {
-    "fabric-api": "*",
-    "fabric-language-kotlin": "*"
+    "fabric-api": "*"
   }
 }

@@ -1,9 +1,7 @@
 plugins {
-    kotlin("jvm")
     id("net.neoforged.moddev")
     id ("dev.kikugie.postprocess.jsonlang")
     id("me.modmuss50.mod-publish-plugin")
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
 tasks.named<ProcessResources>("processResources") {
@@ -56,15 +54,6 @@ neoForge {
     sourceSets["main"].resources.srcDir("src/main/generated")
 }
 
-repositories {
-    mavenLocal()
-    maven("https://thedarkcolour.github.io/KotlinForForge/") { name = "KotlinForForge" }
-}
-
-dependencies {
-    implementation("thedarkcolour:kotlinforforge-neoforge:${property("deps.kotlinforforge")}")
-}
-
 tasks {
     processResources {
         exclude("**/fabric.mod.json", "**/*.accesswidener", "**/mods.toml")
@@ -115,7 +104,6 @@ publishMods {
         accessToken = env.MODRINTH_API_KEY.orNull()
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
-        requires("kotlin-for-forge")
     }
 
     curseforge {
@@ -123,6 +111,5 @@ publishMods {
         accessToken = env.CURSEFORGE_API_KEY.orNull()
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
-        requires("kotlin-for-forge")
     }
 }

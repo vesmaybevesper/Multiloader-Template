@@ -1,5 +1,5 @@
-modLoader = "kotlinforforge"
-loaderVersion = "[5,)"
+modLoader = "javafml"
+loaderVersion = "[2,)"
 license = "MIT"
 
 [[mods]]
@@ -23,8 +23,4 @@ side = "BOTH"
 
 [[dependencies.modtemplate]]
 modId = "minecraft"
-type = "required"
-
-[[dependencies.modtemplate]]
-modId = "kotlinforforge"
 type = "required"

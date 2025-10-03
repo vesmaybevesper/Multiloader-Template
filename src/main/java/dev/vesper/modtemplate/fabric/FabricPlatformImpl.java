@@ -1,7 +1,7 @@
-package dev.spagurder.modtemplate.fabric;
+package dev.vesper.modtemplate.fabric;
 
 //? fabric {
-import dev.spagurder.modtemplate.Platform;
+import dev.vesper.modtemplate.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatformImpl implements Platform {

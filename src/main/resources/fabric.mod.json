@@ -3,7 +3,7 @@
   "id": "modtemplate",
   "name": "Mod Template",
   "version": "${version}",
-  "authors": ["A Mod Author"],
+  "authors": ["VesMaybeVesper"],
   "contact": {
     "sources": "",
     "issues": ""
@@ -15,13 +15,13 @@
   "accessWidener": "modtemplate.accesswidener",
   "entrypoints": {
     "main": [
-      "dev.spagurder.modtemplate.fabric.FabricEntrypoint"
+      "dev.vesper.modtemplate.fabric.FabricEntrypoint"
     ],
     "client": [
-      "dev.spagurder.modtemplate.fabric.FabricClientEntrypoint"
+      "dev.vesper.modtemplate.fabric.FabricClientEntrypoint"
     ],
     "fabric-datagen": [
-      "dev.spagurder.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
+      "dev.vesper.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
     ]
   },
   "mixins": [

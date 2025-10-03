@@ -25,6 +25,14 @@ jsonlang {
     prettyPrint = true
 }
 
+repositories{
+
+}
+
+dependencies{
+
+}
+
 neoForge {
     version = property("deps.neoforge") as String
     validateAccessTransformers = true

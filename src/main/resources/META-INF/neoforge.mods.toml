@@ -8,7 +8,7 @@ displayName = "Mod Template"
 version = "${version}"
 displayURL = ""
 logoFile = "assets/icon.png"
-authors = "A Mod Author"
+authors = "VesMaybeVesper"
 description = '''A Mod Description'''
 
 [[mixins]]

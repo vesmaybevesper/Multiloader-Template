@@ -1,7 +1,7 @@
-package dev.spagurder.modtemplate;
+package dev.vesper.modtemplate;
 
 //? fabric {
-import dev.spagurder.modtemplate.fabric.FabricPlatformImpl;
+import dev.vesper.modtemplate.fabric.FabricPlatformImpl;
 //?}
 //? neoforge {
 /*import dev.spagurder.modtemplate.neoforge.NeoforgePlatformImpl;

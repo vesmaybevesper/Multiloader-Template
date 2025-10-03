@@ -1,7 +1,7 @@
-package dev.spagurder.modtemplate.fabric.datagen;
+package dev.vesper.modtemplate.fabric.datagen;
 
 //? fabric {
-import dev.spagurder.modtemplate.ModTemplate;
+import dev.vesper.modtemplate.ModTemplate;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
